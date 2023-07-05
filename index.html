@@ -1,0 +1,238 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Documentation Page Project</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <header id="nav-head">
+      <h4>HTML Accessibility</h4>
+    </header>
+    <ul>
+      <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#What_you_should_already_know">What you should already know</a></li>
+      <li><a class="nav-link" href="#HTML_and_accessibility">HTML and accessibility</a></li>
+      <li><a class="nav-link" href="#Proper_semantics">Proper semantics</a></li>
+      <li><a class="nav-link" href="#Page_layouts">Page layouts</a></li>
+      <li><a class="nav-link" href="#UI_controls">UI controls</a></li>
+      <li><a class="nav-link" href="#Data_Table_accessibility">Data Table accessibility</a></li>
+      <li><a class="nav-link" href="#Accessible_multimedia">Accessible multimedia</a></li>
+      <li><a class="nav-link" href="#Figures_and_figure_captions">Figures and figure captions</a></li>
+      <li><a class="nav-link" href="#Empty_alt's">Empty alt's</a></li>
+      <li><a class="nav-link" href="#Best_practices_for_links">Best practices for links</a></li>
+      <li><a class="nav-link" href="#Test_your_skills">Test your skills</a></li>
+      <li><a class="nav-link" href="#Reference">Reference</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+
+    <section class="main-section" id="Introduction">
+      <header>
+        <h3>Introduction</h3>
+      </header>
+      <article>
+        <p>A great deal of web content can be made accessible just by making sure the correct HTML elements are used for the correct purposes.</p>
+        <p>This article looks in detail at how HTML can be used to ensure maximum accessibility.</p>
+        <ul>
+          <li>You'll keep seeing a common theme: the importance of using semantic HTML</li>
+          <li>This means using the correct HTML elements for their intended purpose as much as possible.</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="What_you_should_already_know">
+      <header>
+        <h3>What you should already know</h3>
+      </header>
+      <article>
+        <p>This guide assumes you have the following prerequisites:</p>
+        <ul>
+          <li>Basic computer literacy</li>
+          <li>a basic understanding of HTML</li>
+          <li>an understanding of what accessibility is</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="HTML_and_accessibility">
+      <header>
+        <h3>HTML and accessibility</h3>
+      </header>
+      <article>
+        <p>Semantic HTML doesn't take any longer to write than non-semantic (bad) markup if you do it consistently from the start of your project. Even better, semantic markup has other benefits beyond accessibility:</p>
+        <ul>
+          <li>Easier to develop with — as mentioned above, you get some functionality for free, plus it is arguably easier to understand.</li>
+          <li>Better on mobile — semantic HTML is arguably lighter in file size than non-semantic spaghetti code, and easier to make responsive.</li>
+          <li>Good for SEO — search engines give more importance to keywords inside headings, links, etc. than keywords included in non-semantic, div's, etc., so your documents will be more findable by customers.</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="Proper_semantics">
+      <header>
+        <h3>Proper semantics</h3>
+      </header>
+      <article>
+        <p>Out there on the web, the truth is that people do some very strange things with HTML markup. Some abuses of HTML are due to legacy practices that have not been completely forgotten, and some are just plain ignorance. Whatever the case, you should replace such bad code.</p>
+        <p>A good semantic example might look something like the following:</p>
+        <code>&lt;h2&gt;My subheading&lt;/h2&gt;
+          <br>
+          &lt;p&gt;
+          This is the first subsection of my document.
+          I'd love people to be able to find this content!
+          &lt;/p&gt;
+        </code>
+        <p>People sometimes write headings, paragraphs, etc. using line breaks and adding HTML elements purely for styling, something like the following, this is an example of poor semantics:</p>
+        <code>&lt;span style=&quot;font-size: 2.5em&quot;&gt;My subheading&lt;/span&gt; <br>
+          &lt;br /&gt;&lt;br /&gt;
+          This is the first subsection of my document.
+          I'd love people to be able to find this content!
+          &lt;br /&gt;&lt;br /&gt;</code>
+      </article>
+    </section>
+    <section class="main-section" id="Page_layouts">
+      <header>
+        <h3>Page layouts</h3>
+      </header>
+      <article>
+        <p>In the bad old days, people used to create page layouts using HTML tables — using different table cells to contain the header, footer, sidebar, main content column, etc. This is not a good idea because a screen reader will likely give out confusing readouts, especially if the layout is complex and has many nested tables.</p>
+        <p>Before CSS was as widespread as it is now, a simple heading layout may have looked something like this, utilizing tables:</p>
+        <code>&lt;table width=&quot;
+          1200&quot;&gt;<br>
+          &lt;!-- main heading row --&gt;
+          &lt;tr id=&quot;heading&quot;&gt;<br>
+          &lt;td colspan=&quot;6&quot;&gt;<br>
+          &lt;h1 align=&quot;center&quot;&gt;Header&lt;/h1&gt;<br>
+          &lt;/td&gt;
+          &lt;/tr&gt;</code>
+        <p>Table layouts are a relic of the past — additionally, their source code requires more markup, which makes them less flexible and more difficult to maintain. You can verify these claims by comparing with a more modern website heading example, which could look something like this:</p>
+        <code>&lt;header&gt;<br>
+          &lt;h1&gt;Header&lt;/h1&gt;<br>
+          &lt;/header&gt;<br>
+
+          &lt;nav&gt;<br>
+          &lt;!-- main navigation in here --&gt;<br>
+          &lt;/nav&gt;
+        </code>
+        <p>If you try our more modern structure example with a screen reader, you'll see that the layout markup no longer gets in the way and confuses the content readout. It is also much leaner and smaller in terms of code size, which means easier to maintain code</p>
+      </article>
+    </section>
+    <section class="main-section" id="UI_controls">
+      <header>
+        <h3>UI controls</h3>
+      </header>
+      <article>
+        <p>By UI controls, we mean the main parts of web documents that users interact with — most commonly buttons, links, and form controls. In this section, we'll look at the basic accessibility concerns to be aware of when creating such controls.</p>
+        <p>One key aspect of the accessibility of UI controls is that by default, browsers allow them to be manipulated by the keyboard. By using links, buttons, form elements, and labels appropriately, you essentially get this behavior for free.
+        </p>
+        <p>UI control text labels are very useful to all users, but getting them right is particularly important to users with disabilities.</p>
+        <p>Make sure your labels make sense out of context, read on their own, as well as in the context of the paragraph they are in. For example, the following shows an example of good link text:</p>
+        <code>&lt;p&gt;<br>
+          Whales are really awesome creatures.<br>
+          &lt;a href=&quot;whales.html&quot;&gt;Find out more about whales&lt;/a&gt;.<br>
+          &lt;/p&gt;</code>
+        <p>but this is bad link text:</p>
+        <code>&lt;p&gt;<br>
+          Whales are really awesome creatures. To find out more about whales,<br>
+          &lt;a href=&quot;whales.html&quot;&gt;click here&lt;/a&gt;.<br>
+          &lt;/p&gt;</code>
+      </article>
+    </section>
+    <section class="main-section" id="Data_Table_accessibility">
+      <header>
+        <h3>Data Table accessibility</h3>
+      </header>
+      <article>
+        <p>A basic data table can be written with very simple markup. But this has problems — there is no way for a screen reader user to associate rows or columns together as groupings of data. To do this, you need to know what the header rows are and if they are heading up rows, columns, etc.</p>
+        <ul>
+          <li>Table headers are defined using &lt;th&gt; elements &mdash; you can also specify if they are headers for rows or columns using the scope attribute. This gives you complete groups of data that can be consumed by screen readers as single units.</li>
+          <li>The &lt;caption&gt; element and &lt;table&gt; summary attribute both do similar jobs &mdash; they act as alt text for a table, giving a screen reader user a useful quick summary of the table's contents. The &lt;caption&gt; element is generally preferred as it makes it's content accessible to sighted users too, who might also find it useful. You don't really need both.</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="Accessible_multimedia">
+      <header>
+        <h3>Accessible multimedia</h3>
+      </header>
+      <article>
+        <p>Whereas textual content is inherently accessible, the same cannot necessarily be said for multimedia content — image and video content cannot be seen by visually-impaired people, and audio content cannot be heard by hearing-impaired people.</p>
+        <p>This highlights the importance of not only using meaningful file names in case so-called alt text is not available, but also making sure that descriptive alt text is provided in alt attributes wherever possible.</p>
+        <p>If you want to provide extra contextual information, you should put it in the text surrounding the image, or inside a title attribute. In this case, most screen readers will read out the alt text, the title attribute, and the filename.</p>
+      </article>
+    </section>
+    <section class="main-section" id="Figures_and_figure_captions">
+      <header>
+        <h3>Figures and figure captions</h3>
+      </header>
+      <article>
+        <p>HTML includes two elements &mdash; &lt;figure&gt; and &lt;figcaption&gt; &mdash; which associate a figure of some kind (it could be anything, not necessarily an image) with a figure caption:</p>
+        <code>&lt;figure&gt;<br>
+          &lt;img
+          src=&quot;dinosaur.png&quot;
+          alt=&quot;The Mozilla Tyrannosaurus&quot;
+          aria-describedby=&quot;dinodescr&quot; /&gt;<br>
+          &lt;figcaption id=&quot;dinodescr&quot;&gt;
+          A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a
+          human, with small arms, and a large head with lots of sharp teeth.
+          &lt;/figcaption&gt;<br>
+          &lt;/figure&gt;</code>
+        <p>While there is mixed screen reader support of associating figure captions with their figures, including aria-labelledby or aria-describedby creates the association if none is present. That said, the element structure is useful for CSS styling, plus it provides a way to place a description of the image next to it in the source.</p>
+
+      </article>
+    </section>
+    <section class="main-section" id="Empty_alt's">
+      <header>
+        <h4>Empty alt's</h4>
+      </header>
+      <article>
+        <p>There may be times where an image is included in a page's design, but its primary purpose is for visual decoration. In this situation we can use an empty alt: (alt = " ") because many screen readers announce the whole image URL if no alt is provided. (instead they'd just say "image", or similar).</p>
+      </article>
+    </section>
+    <section class="main-section" id="Best_practices_for_links">
+      <header>
+        <h4>Best practices for links</h4>
+      </header>
+      <article>
+        <p>Links (the &lt;a&gt; element with an href attribute), depending on how they are used, can help or harm accessibility. By default, links are accessible in appearance. They can improve accessibility by helping a user quickly navigate to different sections of a document. They can also harm accessibility if their accessible styling is removed or if JavaScript causes them to behave in unexpected ways.</p>
+        <ol>
+          <li>Link styling</li>
+          <ul>
+            <li>links should visually be significantly different from non-linking text, with a minimum contrast requirement of 3:1 between link text and surrounding text</li>
+            <li>Also a 4.5:1 contrast is the standard between all state colors (default, visited, focus/active states) and the background color.</li>
+          </ul>
+          <li>External and resource links</li>
+          <ul>
+            <li>Links that open in a new tab or window via the target ="_blank " declaration and links to whose href value points to a file resource should include an indicator about the behavior that will occur when the link is activated.</li>
+          </ul>
+          <li>Skip navigation</li>
+          <ul>
+            <li>A skip link, also known as skipnav, is an a element placed as close as possible to the opening &lt;body&gt; element that links to the beginning of the page's main content.</li>
+            <li>Skip links are especially useful for people who navigate with the aid of assistive technology such as switch control, voice command, or mouth sticks/head wands, where the act of moving through repetitive links can be a laborious task.</li>
+          </ul>
+        </ol>
+      </article>
+    </section>
+    <section class="main-section" id="Test_your_skills">
+      <header>
+        <h4>Test your skills</h4>
+      </header>
+      <article>
+        <p>You've reached the end of this article, but can you remember the most important information? See <a id="Test_your_skills_link" href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/Test_your_skills:_HTML_accessibility" target="_blank">Test your skills: HTML Accessibility</a> to verify that you've retained this information.
+        </p>
+      </article>
+    </section>
+    <section class="main-section" id="Reference">
+      <header>
+        <h4>Reference</h4>
+      </header>
+      <article>
+        <ul>
+          <li>All the documentation in this page is taken from <a id="Reference_link" target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#html_and_accessibility">MDN</a></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+<html>
